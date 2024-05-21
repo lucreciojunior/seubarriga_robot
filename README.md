@@ -3,7 +3,7 @@
 </p>
 <div align="center">
 
-  <h1>AUTOMAÇÃO SEU BARRIGA WEB - ROBOT FRAMEWORK - SELENIUM</h1>
+  <h1>AUTOMAÇÃO SEU BARRIGA WEB - ROBOT FRAMEWORK - LIBARY BROWSER</h1>
 </div>
 
 ## PRÉ-REQUISITOS
@@ -12,6 +12,7 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 
 * [Python 3.11](https://www.python.org/downloads/ "Python") ou superior
 * [Robot Framework 6.1](https://robotframework.org/robotframework/ "Robot Framework") ou superior
+* Biblioteca [Browser](https://robotframework-browser.org/#installation "Libary Browser")
 * Biblioteca [SetupTools](https://pypi.org/project/setuptools/ "SetupTools")
 * Biblioteca [Faker Library](https://pypi.org/project/robotframework-faker/ "Faker Library")
 * [Vs Code](https://code.visualstudio.com/download) IDE
@@ -35,7 +36,7 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 Com o prompt de comando acesse a pasta do projeto e execute o comando abaixo para rodar os testes automatizados.
 
 ```sh default
-robot -d Results ./features/
+robot -d ./logs features/
 ```
 
 ## COMANDO PARA EXECUÇÃO DE TESTES COM TAGS
@@ -44,8 +45,8 @@ Com o prompt de comando acesse a pasta do projeto e execute o comando abaixo par
 
 Ex.:
 ```sh default
-robot -d Results -t "Login com sucesso no saucedemo" features/LoginSaucedemo.robot
+robot -d ./logs -t "Login com sucesso no saucedemo" features/LoginSaucedemo.robot
 ```
 
 ## EVIDÊNCIAS
-Os arquivos com as evidências ficam localizados na pasta Results do projeto, esta pasta só é criada depois da primeira execução, nesta pasta se encontram os logs, o report html com os status da execução e os prins evidênciando a execução.
+Os arquivos com as evidências ficam localizados na pasta *logs* do projeto, esta pasta só é criada depois da primeira execução, nesta pasta se encontram os logs, o report html com os status da execução e os prins evidênciando a execução.

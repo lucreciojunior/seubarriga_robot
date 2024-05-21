@@ -1,9 +1,9 @@
 *** Variables ***
-${fieldMes}                css:#mes > option
-${fieldAno}                css:#ano option
-${btnBuscar}               class:btn
-${btnExcluir}              css:tr:nth-child(1) > td > a
-${validaMovimentacao}      css:tbody > tr
+${fieldMes}                id=mes
+${fieldAno}                id=ano
+${btnBuscar}               input[value="Buscar"]
+${btnExcluir}              css=tr:nth-child(1) > td > a
+${validaMovimentacao}      //*[@id="tabelaExtrato"]/tbody
 ${urlResumo}               https://seubarriga.wcaquino.me/extrato
-${setembro}                8
+${setembro}                //*[@id="mes"]/option[9]
 ${2023}                    13

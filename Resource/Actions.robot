@@ -1,51 +1,57 @@
 *** Settings ***
 Resource    ./Main.robot
 
+Library    Collections
 
 *** Keywords ***
 waitElement
     [Arguments]                      ${elements}       ${time}
-    Wait Until Element Is Visible    ${elements}       ${time}
+    Wait For Elements State          ${elements}       timeout=${time}
+    # Wait Until Element Is Visible    ${elements}       ${time}
 
+SelectClickValue
+    [Arguments]                   ${elements}             ${value}
+    Wait For Elements State       ${elements}
+    Select Options By             ${elements}    value    ${value}
 clickIndex
     [Arguments]                      ${element}        ${index}
-    waitElement                      ${element}        10s
-    ${elementos}=                    Get WebElements   ${element}
-    ${elemento}=                     Set Variable      ${elementos}[${index}]
-    Click Element                    ${elemento}
+    ${elements}=    Get Elements     ${element}
+    ${element}=     Set Variable     ${elements}[${index}]
+    Click                            ${element}
 
-click
+clickElement
     [Arguments]                      ${element}
+
     waitElement                      ${element}        10s
-    Click Element                    ${element}
+    Click                            ${element}
 
 clickText
     [Arguments]                      ${element}        ${text}
     waitElement                      ${element}        10s
     ${text}                          Get Text          ${element}
-    Click Element                    ${element}     
+    Click                            ${element}     
 
 getMessage
-    [Arguments]                      ${element}        
-    waitElement                      ${element}        10s
-    ${text}=                         Get Text          ${element}
-    [Return]                         ${text} 
+    [Arguments]                          ${element}        
+    waitElement                          ${element}    10s       
+    ${text}=           Get Text          ${element}
+    RETURN                               ${text} 
+   
 
 getTextIndex
     [Arguments]                      ${element}        ${index}
-    waitElement                      ${element}        10s
-    ${elementos}=                    Get WebElements   ${element}
-    ${elemento}=                     Set Variable      ${elementos}[${index}]
-    ${text}=                         Get Text          ${elemento}
-    [Return]                         ${text}
+    ${elements}=    Get Elements     ${element}
+    ${element}=     Set Variable     ${elements}[${index}]
+    ${text}=                         Get Text          ${element}
+    RETURN                           ${text}
 
 set
     [Arguments]                      ${element}        ${text}
     waitElement                      ${element}        10s
-    Input Text                       ${element}        ${text}
+    Fill Text                        ${element}        ${text}
 
 clear
     [Arguments]                      ${element}
     waitElement                      ${element}        10s
-    Clear Element Text               ${element}    
+    Clear Text                       ${element}    
 

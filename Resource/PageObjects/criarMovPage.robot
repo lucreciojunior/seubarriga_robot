@@ -8,7 +8,10 @@ Quando preencher os dados
     ...    ${descricao}    ${interessado}    ${valor}    ${situacao}
     Fakers
     click              ${tipo}
-    Run Keyword If    '${tipomov}' == 'Receita'        clickIndex    ${tiposMovimento}             0
+
+    # Wait For Elements State    id=tipo    visible
+
+    Run Keyword If    '${tipomov}' == 'Receita'        SelectClickValue   ${tipo}        REC             
     Run Keyword If    '${tipomov}' == 'Despesa'        clickIndex    ${tiposMovimento}             1
     Run Keyword If    '${dataMov}' != 'Null'           set           ${fieldDataMov}        ${dataMov}
     Run Keyword If    '${dataPag}' != 'Null'           set           ${fieldDAtaPag}        ${dataPag}
@@ -16,10 +19,10 @@ Quando preencher os dados
     Run Keyword If    '${interessado}' != 'Null'       set           ${fieldInteressado}    ${FakeNome}
     Run Keyword If    '${valor}' != 'Null'             set           ${fieldValor}          ${FakerValor}
     click              ${fieldConta}
-    clickText          ${optionConta}                  Automation teste
+    SelectClickValue   ${fieldConta}    2097534
     Run Keyword If    '${situacao}' == 'Pago'          click         ${statusPago}
     Run Keyword If    '${situacao}' == 'Pendente'      click         ${statusPendente}
-    Capture Page Screenshot
+    Take Screenshot
     click              ${btnSalvar}
 
 Então o sistema exibirar a mensagem 

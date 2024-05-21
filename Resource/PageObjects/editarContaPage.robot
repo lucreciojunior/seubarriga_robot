@@ -6,9 +6,9 @@ Quando Editar o campo Nome
     [Arguments]       ${conta}
     Fakers
     ${FullName}       Catenate                Editar                 ${FakeNome}
-    ${urlAtual}       Get Location
+    ${urlAtual}       Get Url
     Should Contain    ${urlAtual}             ${urlEditarConta}
     clear             ${fieldNome}
     Run Keyword If    '${conta}' != 'Null'    set    ${fieldNome}    ${FullName}
-    Capture Page Screenshot
+    Take Screenshot
     click             ${btnSalvar}

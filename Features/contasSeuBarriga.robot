@@ -4,6 +4,15 @@ Test Setup       Start Automation Login
 Test Teardown    Stop Automation
 
 *** Test Cases ***
+
+Excluindo Conta com Sucesso
+    Dado que o usuário clique em Adicionar contas
+    Quando preencher o campo Nome                   Teste novo Robot junior
+    Então sera visualizado a mensagem               Conta adicionada com sucesso!
+    Dado que o usuário clique em Listar contas
+    Quando o usuário clicar em Excluir a Conta desejada
+    Então sera visualizado a mensagem               Conta removida com sucesso!  
+
 Criando Conta com Sucesso
     Dado que o usuário clique em Adicionar contas
     Quando preencher o campo Nome                   ${FakeNome}
@@ -14,7 +23,7 @@ Validando o campo Nome da criação de Nova Conta
     Quando preencher o campo Nome                   Null
     Então sera visualizado a mensagem               Informe o nome da conta
 
-Visualizando Lista de Contas com Sucesso
+Visualizando Lista de Contas cadastradas
     Dado que o usuário clique em Listar contas
     Quando o usuário verificar a tela
     Então o sistema exibira as contas cadastradas
@@ -30,15 +39,6 @@ Validando o campo Nome do Editar
     E clicar em Editar 
     Quando Editar o campo Nome                      Null
     Então sera visualizado a mensagem               Informe o nome da conta
-
-Excluindo Conta com Sucesso
-    Dado que o usuário clique em Adicionar contas
-    Quando preencher o campo Nome                   Teste Automation Robot
-    Então sera visualizado a mensagem               Conta adicionada com sucesso!
-    
-    Dado que o usuário clique em Listar contas
-    Quando o usuário clicar em Excluir a Conta desejada
-    Então sera visualizado a mensagem               Conta removida com sucesso!        
 
 
 

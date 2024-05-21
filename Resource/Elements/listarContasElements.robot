@@ -1,6 +1,6 @@
 *** Variables ***
 ${urlListarContas}              https://seubarriga.wcaquino.me/contas
-${validaMessage}                css:.alert
-${editarConta}                  css:.glyphicon-edit
-${excluirConta}                 css:.glyphicon-remove-circle
-${tabelaContas}                 id:tabelaContas
+${validaMessage}                div[class="alert alert-danger"]
+${editarConta}                  css=.glyphicon-edit
+${excluirConta}                 css=.glyphicon-remove-circle
+${tabelaContas}                 id=tabelaContas

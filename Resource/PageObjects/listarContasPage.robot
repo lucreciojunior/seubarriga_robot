@@ -8,17 +8,16 @@ Então sera visualizado a mensagem
     Should Be Equal As Strings    ${text}               ${message}
 
 Quando o usuário verificar a tela
-    ${urlAtual}   Get Location
+    ${urlAtual}   Get Url
     Should Be Equal As Strings    ${urlListarContas}    ${urlAtual}
-    Capture Page Screenshot
-
+    Take Screenshot
 Então o sistema exibira as contas cadastradas
-    Element Should Be Visible     ${tabelaContas}
+    Wait For Elements State     ${tabelaContas}
 
 E clicar em Editar
     clickIndex                    ${editarConta}         1
 
 
 Quando o usuário clicar em Excluir a Conta desejada
-    Capture Page Screenshot
-    clickIndex                    ${excluirConta}         8
+    Take Screenshot
+    clickIndex                    ${excluirConta}         15

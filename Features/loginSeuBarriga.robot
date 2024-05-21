@@ -5,6 +5,7 @@ Test Teardown      Stop Automation
 
 *** Test Cases ***
 Login com sucesso no Seu Barriga
+    # [Tags]    test
     Dado que o usuario informe os dados para o Login          ${emailCorreto}      ${senhaCorreta}
     Quando o usuario clicar no botão Entrar
     Então o sistema exibira a mensagem de sucesso do Login    Bem vindo, thiago!

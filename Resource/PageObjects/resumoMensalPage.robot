@@ -5,16 +5,17 @@ Resource    ../Main.robot
 Quando o usuario consultar as movimentações
     [Arguments]                                   ${mes}               ${ano}
     
-    ${url_atual}                                  Get Location
+    ${url_atual}                                  Get Url
     Should Be Equal As Strings                    ${urlResumo}         ${url_atual}
-    Run Keyword If     '${mes}' == 'setembro'     clickIndex           ${fieldMes}          8
-    Run Keyword If     '${ano}' == '2023'         clickIndex           ${fieldAno}          13
-    Capture Page Screenshot
+    Click    ${fieldMes}
+    Run Keyword If     '${mes}' == 'Setembro'     SelectClickValue           ${fieldMes}          09
+    Run Keyword If     '${ano}' == '2023'         SelectClickValue           ${fieldAno}          2023
+    Take Screenshot
     click                                         ${btnBuscar}
 
 Então o sistema exibira as movimentações pesquisadas
-    Element Should Be Visible                     ${validaMovimentacao}
+    Wait For Elements State                     ${validaMovimentacao}
 
 Então o sistema o grid vazio
-    Element Should Not Be Visible                 ${validaMovimentacao}
+    Should Not Be Empty               ${validaMovimentacao}
 

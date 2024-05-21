@@ -1,18 +1,22 @@
 *** Settings ***
 Resource    ./Main.robot
 
+Library    Browser
 
 *** Keywords ***
 Start Automation
-    Open Browser    ${URL}    ${HeadLess}
-    Maximize Browser Window
-    # Set Selenium Speed    0.5
+    New Browser        browser=chromium    headless=True
+    New Page           ${URL}
+    Fakers
+    # Maximize Browser Window+
+
     
 Stop Automation
-    Capture Page Screenshot
-    Close Browser
+    Take Screenshot
+    
 
 Start Automation Login
+    Fakers
     Start Automation
     Dado que o usuario informe os dados para o Login    teste@teste.com    123456
     Quando o usuario clicar no botão Entrar

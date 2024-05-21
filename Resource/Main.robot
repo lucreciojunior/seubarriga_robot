@@ -1,5 +1,5 @@
 *** Settings ***
-Library     SeleniumLibrary
+Library     Browser
 Library     FakerLibrary    locale=pt_BR
 
 # Elements
